@@ -1,0 +1,6 @@
+language: swift
+os: osx
+osx_image: xcode14.2
+
+script:
+  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' build
