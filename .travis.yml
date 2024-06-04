@@ -3,4 +3,5 @@ os: osx
 osx_image: xcode14.2
 
 script:
-  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' build test
+  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' build
+  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' test
