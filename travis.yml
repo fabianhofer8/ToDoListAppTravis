@@ -1,0 +1,6 @@
+language: swift
+os: osx
+osx_image: xcode14.2
+
+script:
+  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,OS=15.4,name=iPhone 12' build
