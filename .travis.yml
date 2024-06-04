@@ -10,7 +10,6 @@ before_script:
 
 script:
   - echo "Starting build process..."
-  - travis_wait 40 set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build | xcpretty
   - echo "Build completed, starting tests..."
   - echo "Running tests..."
   - travis_wait 40 set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' test | xcpretty
