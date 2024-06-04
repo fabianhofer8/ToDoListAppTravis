@@ -2,6 +2,9 @@ language: swift
 os: osx
 osx_image: xcode14.2
 
+before_install:
+  - gem install xcpretty
+
 script:
-  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' build
-  - xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' test
+  - set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build | xcpretty
+  - set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' test | xcpretty
