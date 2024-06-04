@@ -7,6 +7,7 @@ before_install:
 
 script:
   - echo "Starting build process..."
-  - travis_wait 30 set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build | xcpretty --reporter json-compilation-database --output build_output.json
+  - travis_wait 30 set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build | xcpretty
   - echo "Build completed, starting tests..."
-  - travis_wait 30 set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' test | xcpretty --reporter junit --output test_output.xml
+  - travis_wait 30 set -o pipefail && xcodebuild -project ToDoListAppTravis.xcodeproj -scheme ToDoListAppTravis -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' test | xcpretty
+  - echo "Tests completed."

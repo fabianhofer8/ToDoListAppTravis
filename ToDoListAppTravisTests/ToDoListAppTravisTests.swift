@@ -26,6 +26,7 @@ class ToDoListAppTravisTests: XCTestCase {
     }
 
     func testAddTask() throws {
+        print("Start testAddTask")
         // Given
         let initialTaskCount = viewModel.tasks.count
         
@@ -36,9 +37,12 @@ class ToDoListAppTravisTests: XCTestCase {
         // Then
         XCTAssertEqual(viewModel.tasks.count, initialTaskCount + 1)
         XCTAssertEqual(viewModel.tasks.last?.name, "Test Task")
+        print("End testAddTask")
+
     }
 
     func testToggleTaskCompletion() throws {
+        print("Start testToggleTaskCompletion")
         // Given
         viewModel.newTask = "Test Task"
         viewModel.addTask()
@@ -50,9 +54,13 @@ class ToDoListAppTravisTests: XCTestCase {
         
         // Then
         XCTAssertNotEqual(viewModel.tasks[taskIndex].isCompleted, initialCompletionStatus)
+        print("End testToggleTaskCompletion")
+
     }
 
     func testAddEmptyTask() throws {
+        print("Start testAddEmptyTask")
+
         // Given
         let initialTaskCount = viewModel.tasks.count
         
@@ -62,6 +70,8 @@ class ToDoListAppTravisTests: XCTestCase {
         
         // Then
         XCTAssertEqual(viewModel.tasks.count, initialTaskCount)
+        print("End testAddEmptyTask")
+
     }
 }
 
